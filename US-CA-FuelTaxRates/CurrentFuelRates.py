@@ -19,7 +19,7 @@ class CurrentFuelRates:
         TABLE_ID = "rwd-table-large"
         fuel_data = [["STATE","SPECIAL DIESEL","BIODIESEL"]]
         row = 1
-        
+
         #Iterate until there are no states left, then returns the list with the data
         while True:
             try:
