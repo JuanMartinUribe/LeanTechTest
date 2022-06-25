@@ -19,7 +19,8 @@ class CurrentFuelRates:
         TABLE_ID = "rwd-table-large"
         fuel_data = [["STATE","SPECIAL DIESEL","BIODIESEL"]]
         row = 1
-
+        
+        #Iterate until there are no states left, then returns the list with the data
         while True:
             try:
                 path_to_state = f'//table[@id="{TABLE_ID}"]/tbody/tr[{row}]/td[{STATE_INDEX}]'
@@ -34,7 +35,7 @@ class CurrentFuelRates:
             except:
                 self.driver.quit()
                 return fuel_data
-def excelEmail(message,filename):
+def sendEmail(message,filename):
     EMAIL_ADDRESS = 'juanmartin104@gmail.com'
     EMAIL_PASSWORD = 'glymhdztujnmjwyl'
     msg = EmailMessage()
@@ -74,4 +75,4 @@ def excelEmail(message,filename):
 if __name__=="__main__":
     current_fuel = CurrentFuelRates()
     msg = tabulate(current_fuel.getRates(), tablefmt='html')
-    excelEmail(msg,"currentFuelRates.py")
+    sendEmail(msg,"currentFuelRates.py")
